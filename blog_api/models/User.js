@@ -11,7 +11,7 @@ const userSchema = new mongoose.Schema({
 // Method to generate auth token
 userSchema.methods.generateAuthToken = async function() {
     const user = this;
-    const token = jwt.sign({ _id: user._id.toString() }, 'your_jwt_secret'); // Replace with your secret key
+    const token = jwt.sign({ _id: user._id.toString() }, config.jwtSecret); // Replace with your secret key
     user.tokens = user.tokens.concat({ token });
     await user.save();
     return token;
