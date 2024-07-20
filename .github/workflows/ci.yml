@@ -17,11 +17,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '21'
-      - name: Change directory to blog_api
-        run: cd blog_api
+      
       - name: Install dependencies
+        working-directory: blog_api
         run: npm install
       - name: Run ESLint
+        working-directory: blog_api
         run: npx eslint . --ext .js
 
   test:
@@ -35,12 +36,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '21'
-      - name: Change directory to blog_api
-        run: cd blog_api
-      - name: Install dependencies
-        run: npm install
 
+      - name: Install dependencies
+        working-directory: blog_api
+        run: npm install
       - name: Run Jest tests
+        working-directory: blog_api
         run: npm test
 
   integration-test:
@@ -54,12 +55,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '21'
-
-      - name: Change directory to blog_api
-        run: cd blog_api
       - name: Install dependencies
+        working-directory: blog_api
         run: npm install
       - name: Run integration tests
+        working-directory: blog_api
         run: npm run integration-test
    
   security:
@@ -73,9 +73,8 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Change directory to blog_api
-        run: cd blog_api
       - name: Install dependencies
+        working-directory: blog_api
         run: npm install
       - name: Run Snyk Security Scan
         uses: snyk/actions/node@master
