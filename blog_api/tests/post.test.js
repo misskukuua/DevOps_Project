@@ -4,10 +4,10 @@ const Post = require('../models/post');  // Adjust the path if necessary
 
 // Connect to a test database before running tests
 beforeAll(async () => {
-    await mongoose.connect('mongodb://localhost:27017/blog_api_test', {
-        
-    });
-}, 10000);
+    console.log('Setting up the database connection...');
+    await mongoose.connect('mongodb://localhost:27017/blog_api_test');
+    console.log('Database connection established.');
+}, 10000); 
 
 // Disconnect from the test database after running tests
 afterAll(async () => {
