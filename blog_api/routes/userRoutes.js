@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 // Register new user
 router.post('/register', async (req, res) => {
@@ -12,7 +12,7 @@ router.post('/register', async (req, res) => {
         const token = await user.generateAuthToken();
         res.status(201).send({ user, token });
     } catch (error) {
-        res.status(400).send(error);
+        res.status(400).send({error: 'Registration failed', details: error});
     }
 });
 
@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
             user, 
             token });
     } catch (error) {
-        res.status(400).send(error);
+        res.status(400).send({error: 'Login failed', details: error });
     }
 });
 
@@ -48,7 +48,7 @@ router.get('/users', async (_req, res) => {
         const users = await User.find({});
         res.send(users);
     } catch (error) {
-        res.status(500).send(error);
+        res.status(500).send({error: 'Fetching users failed', details: error });
     }
 });
 
