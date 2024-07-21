@@ -107,4 +107,4 @@ jobs:
       - name: Build Docker image
         run: docker build . -t my-app:${{ github.sha }}
       - name: Push Docker image
-        run: docker push pasare777/my-app:tagname
+        run: docker push pasare777/my-app:${{ github.sha }}
