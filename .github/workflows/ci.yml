@@ -105,6 +105,6 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build Docker image
-        run: docker build . -t my-app:${{ github.sha }}
+        run: docker build . -t pasare777/my-app:${{ github.sha }}
       - name: Push Docker image
         run: docker push pasare777/my-app:${{ github.sha }}
