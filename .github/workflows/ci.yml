@@ -89,7 +89,7 @@ jobs:
       - name: Run Snyk Security Scan
         uses: snyk/actions/node@master
         with:
-          args: test
+          args: test blog_api
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
 
