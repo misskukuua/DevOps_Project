@@ -5,8 +5,7 @@ const Post = require('../models/post');  // Adjust the path if necessary
 // Connect to a test database before running tests
 beforeAll(async () => {
     await mongoose.connect('mongodb://localhost:27017/blog_api_test', {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
+        
     });
 }, 10000);
 
