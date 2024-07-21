@@ -63,28 +63,38 @@ jobs:
   #       run: npm run integration-test
    
   security:
-    name: Security Scan
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '21'
-
-      - name: Install dependencies
-        working-directory: blog_api
-        run: npm install
-
       - uses: actions/checkout@master
-      - name: Run Snyk Security Scan
+      - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/node@master
-        with:
-          args: test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  
+  
+  
+    #   name: Security Scan
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '21'
+
+  #     - name: Install dependencies
+  #       working-directory: blog_api
+  #       run: npm install
+
+  #     - uses: actions/checkout@master
+  #     - name: Run Snyk Security Scan
+  #       uses: snyk/actions/node@master
+  #       with:
+  #         args: test
+  #       env:
+  #         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
 
   docker:
     name: Build and Push Docker Image
