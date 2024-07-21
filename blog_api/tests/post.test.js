@@ -8,12 +8,12 @@ beforeAll(async () => {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
-});
+}, 10000);
 
 // Disconnect from the test database after running tests
 afterAll(async () => {
     await mongoose.connection.close();
-});
+}, 10000);
 
 // Cleanup database before each test
 beforeEach(async () => {
