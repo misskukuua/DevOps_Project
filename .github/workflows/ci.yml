@@ -87,7 +87,7 @@ jobs:
         
       - uses: actions/checkout@master
       - name: Run Snyk Security Scan
-        uses: snyk/actions/node@master
+        uses: snyk/actions/node@v2
         with:
           args: test blog_api
         env:
