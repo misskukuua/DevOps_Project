@@ -37,9 +37,9 @@ jobs:
         with:
           node-version: '21'
 
-      - name: Install dependencies
-        working-directory: blog_api
-        run: npm install
+      # - name: Install dependencies
+      #   working-directory: blog_api
+      #   run: npm install
       - name: Run Jest tests
         working-directory: blog_api
         run: npm test
