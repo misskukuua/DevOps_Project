@@ -44,23 +44,6 @@ jobs:
         working-directory: blog_api
         run: npm test
 
-  # integration-test:
-  #   name: Run Integration Tests
-  #   runs-on: ubuntu-latest
-  #   needs: test
-  #   steps:
-  #     - name: Checkout code
-  #       uses: actions/checkout@v3
-  #     - name: Set up Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '21'
-  #     - name: Install dependencies
-  #       working-directory: blog_api
-  #       run: npm install
-  #     - name: Run integration tests
-  #       working-directory: blog_api
-  #       run: npm run integration-test
    
   security:
     runs-on: ubuntu-latest
@@ -87,7 +70,7 @@ jobs:
         
       - uses: actions/checkout@master
       - name: Run Snyk Security Scan
-        uses: snyk/actions/node@v2
+        uses: snyk/actions/node@master
         with:
           args: test blog_api
         env:
