@@ -60,12 +60,12 @@ jobs:
         working-directory: blog_api
         run: npm install
         
-      # - uses: actions/checkout@v2
-      - name: Run Snyk Security Scan
-        uses: snyk test
-        continue-on-error: true
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
+      # # - uses: actions/checkout@v2
+      # - name: Run Snyk Security Scan
+      #   uses: snyk test
+      #   continue-on-error: true
+      #   env:
+      #     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
 
   docker:
     name: Build and Push Docker Image
