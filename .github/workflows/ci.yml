@@ -25,24 +25,28 @@ jobs:
         working-directory: blog_api
         run: npx eslint . 
 
-  test:
-    name: Run Tests
-    runs-on: ubuntu-latest
-    needs: lint
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '21'
-
-      - name: Install dependencies
-        working-directory: blog_api
-        run: npm install
-      - name: Run Jest tests
+      - name: Run Tests
         working-directory: blog_api
         run: npm test
+
+  # test:
+  #   name: Run Tests
+  #   runs-on: ubuntu-latest
+  #   needs: lint
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '21'
+
+  #     - name: Install dependencies
+  #       working-directory: blog_api
+  #       run: npm install
+  #     - name: Run Jest tests
+  #       working-directory: blog_api
+  #       run: npm test
 
    
   security:
