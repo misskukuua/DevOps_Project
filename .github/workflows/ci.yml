@@ -62,8 +62,7 @@ jobs:
         
       # - uses: actions/checkout@v2
       - name: Run Snyk Security Scan
-        uses: actions/setup-go@v1
-    
+        uses: snyk test
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
 
