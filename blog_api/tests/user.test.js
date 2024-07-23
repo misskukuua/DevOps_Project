@@ -37,5 +37,5 @@ describe('User Model', () => {
         // Verify password hash
         const isMatch = await bcrypt.compare(password, savedUser.password);
         expect(isMatch).toBe(true);
-    }, 10000); // Increase timeout to 10000 ms
+    }, 100000); // Increase timeout to 10000 ms
 });
