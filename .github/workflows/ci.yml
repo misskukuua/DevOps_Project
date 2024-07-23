@@ -42,8 +42,7 @@ jobs:
         run: npm install
       - name: Run Jest tests
         working-directory: blog_api
-        run: npx jest --detectOpenHandles
-
+        run: npm test
 
    
   security:
