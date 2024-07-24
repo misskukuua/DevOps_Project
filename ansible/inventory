@@ -1,0 +1,2 @@
+[server]
+4.221.226.21 ansible_user=azureuser
