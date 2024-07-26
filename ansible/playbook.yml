@@ -7,15 +7,13 @@
         update_cache: yes
         upgrade: dist
 
-    - name: Install Node.js
+    - name: Install required packages
       apt:
-        name: nodejs
+        name: "{{ item }}"
         state: present
-
-    - name: Install npm
-      apt:
-        name: npm
-        state: present
+      with_items:
+        - nodejs
+        - npm
 
     - name: Create a directory 
       file:
@@ -35,3 +33,10 @@
       npm:
         path: /var/www/DevOps_Project/
         production: yes  
+
+    - name: Start the Node.js application
+      command: npm start
+      args:
+        chdir: /var/www/DevOps_Project/
+      environment:
+        NODE_ENV: production
